@@ -1,7 +1,7 @@
 ---
 services:
   db:
-    image: shaikmustafa/arshad:db
+    image: sruthikumari94/dbimage:latest
     deploy:
       replicas: 1
     ports:
@@ -10,11 +10,11 @@ services:
       - mynetwork
 
   auth_service:
-    image: shaikmustafa/arshad:auth
+    image: sruthikumari94/authimage:latest
     deploy:
       replicas: 1
     ports:
-      - "5001:5001"
+      - "1111:5001"
     networks:
       - mynetwork
     depends_on:
@@ -22,32 +22,32 @@ services:
     
 
   book_service:
-    image: shaikmustafa/arshad:book
+    image: sruthikumari94/bookimage:latest
     deploy:
       replicas: 1
     ports:
-      - "5002:5002"
+      - "1112:5002"
     networks:
       - mynetwork
     depends_on:
       - db
   borrow_service:
-    image: shaikmustafa/arshad:borrow
+    image: sruthikumari94/borrowimage:latest
     deploy:
       replicas: 1
     ports:
-      - "5003:5003"
+      - "1113:5003"
     networks:
       - mynetwork
     depends_on:
       - db
 
   frontend:
-    image: shaikmustafa/arshad:frontend
+    image: sruthikumari94/pythonapp:latest
     deploy:
       replicas: 1
     ports:
-      - "5000:5000"
+      - "1114:5000"
     networks:
       - mynetwork
     depends_on:
@@ -57,4 +57,4 @@ services:
 
 networks:
   mynetwork:
-    driver: bridge
+    driver: overlay
