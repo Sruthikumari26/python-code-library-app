@@ -1,0 +1,5 @@
+sonar.projectKey=mysonar
+sonar.projectName=Python Code Library App
+sonar.sources=.
+sonar.sourceEncoding=UTF-8
+sonar.python.coverage.reportPaths=coverage.xml
